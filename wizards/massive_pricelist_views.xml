@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <record id="massive_pricelist_massive_pricelist_view_form" model="ir.ui.view">
+            <field name="name">massive_pricelist.massive_pricelist.view.form</field>
+            <field name="model">massive_pricelist.massive_pricelist</field>
+            <field name="arch" type="xml">
+                <form string="Actualización de precios">
+                    <sheet>
+                        <group>
+                            <field name="all_products" />
+                            <p>En caso de tildar esta opción el sistema actualizará el precio de todos los productos. Caso contrario, solo actualizará aquellos productos que fueron seleccionados.</p>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Actualizar" name="update" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    
+
+        <record id="action_view_sale_advance_payment_inv" model="ir.actions.act_window">
+            <field name="name">Actualización de precios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">massive_pricelist.massive_pricelist</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <!-- TODO: check if we need this -->
+            <field name="binding_model_id" ref="product.model_product_product" />
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+    
+</odoo>
